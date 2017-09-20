@@ -10,6 +10,7 @@ module.exports = function(RED) {
         var ctx = this;
         this.on('input', function(msg) {
         	var query = config.query;
+            if (msg.query) query=msg.query;
             var params = msg.payload;
             db.cypherQuery(query, params, function (err, results){
         		if (err) ctx.error(err);
