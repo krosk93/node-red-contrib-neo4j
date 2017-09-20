@@ -11,7 +11,10 @@ module.exports = function(RED) {
         this.on('input', function(msg) {
         	var query = config.query;
             // Override static query with dynamic 
-            if (msg.query) query=msg.query;
+            if (msg.query){
+                query=msg.query;
+                console.log("Overriding Cypher Query : " + query);
+            }
             var params = msg.payload;
             db.cypherQuery(query, params, function (err, results){
         		if (err) ctx.error(err);
