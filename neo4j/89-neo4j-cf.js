@@ -11,7 +11,7 @@ module.exports = function(RED) {
 
             // If Config URL is empty and passed in within the msg use it.
             // This allows dynamic connectivity.
-            if (!neourl && msg.url){
+            if (msg.url){
                 neourl = msg.url;
             }
 
