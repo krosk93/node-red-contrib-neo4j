@@ -21,7 +21,7 @@ module.exports = function(RED) {
                 // Override static query with dynamic
                 if (msg.query){
                     query=msg.query;
-                    console.log("Cypher Query : " + query);
+                    // console.log("Cypher Query : " + query);
                 }
                 var params = msg.payload;
                 var db = new neo4j(neourl);
