@@ -16,7 +16,7 @@ module.exports = function(RED) {
             }
 
             if (neourl){
-                console.log(neourl);
+                //console.log(neourl);
                 var query = config.query;
                 // Override static query with dynamic
                 if (msg.query){
