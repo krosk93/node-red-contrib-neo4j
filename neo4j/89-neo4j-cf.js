@@ -23,13 +23,20 @@ module.exports = function(RED) {
                     query=msg.query;
                     // console.log("Cypher Query : " + query);
                 }
-                var params = msg.payload;
-                var db = new neo4j(neourl);
-                db.cypherQuery(query, params, function (err, results){
-                    if (err) ctx.error(err);
-                    msg.payload = results;
-                    node.send(msg);
-                });
+
+                try{
+                    var params = msg.payload;
+                    var db = new neo4j(neourl);
+                    db.cypherQuery(query, params, function (err, results){
+                        if (err) ctx.error(err);
+                        msg.payload = results;
+                        node.send(msg);
+                    });
+                }
+                catch(exception){
+                    console.log("[neo4j Exception] " + exception.toString());
+                    node.error(exception.toString());
+                }
             }else{
                 node.error("Neo4j URL is Empty");
             }
