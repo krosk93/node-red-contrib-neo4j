@@ -1,2 +1,4 @@
 /neo4j/neo4j.iml
+node_modules
+package-lock.json
 .idea

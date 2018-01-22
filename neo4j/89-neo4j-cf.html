@@ -4,7 +4,9 @@
         color: '#a6bbcf',
         defaults: {
             name: {value:""},
-            url: {value:""},
+            url: {value:"bolt://localhost"},
+            username: {value: "neo4j"},
+            password: {value: "password"},
             query: {value:""}
         },
         inputs:1,
@@ -54,17 +56,27 @@
 </script>
 
 <script type="text/x-red" data-template-name="neo4j">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-        <label for="node-input-url"><i class="icon-tag"></i> URL</label>
-        <input type="text" id="node-input-url" placeholder="url">
-    </div>
-    <div class="form-row node-text-editor-row">
-        <label for="node-input-query" style="width: 100% !important;"><i class="fa fa-comments"></i> Cypher query</label>
-        <input type="hidden" id="node-input-query" autofocus="autofocus">
-        <div style="height: 250px;" class="node-text-editor" id="node-input-query-editor" ></div>
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+    <label for="node-input-url"><i class="icon-tag"></i> URL</label>
+    <input type="text" id="node-input-url" placeholder="url">
+  </div>
+  <div class="form-row">
+    <label for="node-input-username"><i class="icon-tag"></i> Username</label>
+    <input type="text" id="node-input-username" placeholder="username">
+  </div>
+  <div class="form-row">
+    <label for="node-input-password"><i class="icon-tag"></i> Password</label>
+    <input type="password" id="node-input-password" placeholder="password">
+  </div>
+  <div class="form-row node-text-editor-row">
+    <label for="node-input-query" style="width: 100% !important;"><i class="fa fa-comments"></i> Cypher query</label>
+    <input type="hidden" id="node-input-query" autofocus="autofocus">
+    <div style="height: 250px;" class="node-text-editor" id="node-input-query-editor" ></div>
+  </div>
 </script>
 
 <script type="text/x-red" data-help-name="neo4j">
